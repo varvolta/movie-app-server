@@ -15,6 +15,8 @@ app.use(allowCrossDomain)
 app.use(bodyParser.json())
 
 app.use('/uploads', express.static('uploads'))
+app.use('/api/movies', movieRoutes)
+app.use('/api/user', userRoutes)
 
 mongoose
     .connect(process.env.MONGO_URI, {
@@ -23,16 +25,14 @@ mongoose
     })
     .then(() => {
         console.log('Connected to MongoDB')
+
+        const PORT = process.env.PORT || 3000
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`)
+        })
     })
     .catch((err) => {
         console.log('Error connecting to MongoDB:', err)
     })
 
-app.use('/api/movies', movieRoutes)
-app.use('/api/user', userRoutes)
 
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-})
