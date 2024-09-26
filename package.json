@@ -2,11 +2,11 @@
   "name": "movie-app-server",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "api/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "node api/index.js"
   },
   "author": "",
   "license": "ISC",
