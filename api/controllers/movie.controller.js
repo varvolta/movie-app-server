@@ -1,7 +1,6 @@
-import Movie from '../models/movie.model.js'
-import jwt from 'jsonwebtoken'
+const Movie = require('../models/movie.model.js')
 
-class MoveController {
+class MovieController {
     static async add(req, res) {
         try {
             const { title, year } = req.body
@@ -101,4 +100,4 @@ class MoveController {
     }
 }
 
-export default MoveController
+module.exports = MovieController

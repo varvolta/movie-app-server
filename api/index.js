@@ -1,10 +1,10 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
-import movieRoutes from './routes/movie.route.js'
-import userRoutes from './routes/user.route.js'
-import dotenv from 'dotenv'
-import cors from 'cors'
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const movieRoutes = require('./routes/movie.route.js')
+const userRoutes = require('./routes/user.route.js')
+const dotenv = require('dotenv')
+const cors = require('cors')
 
 dotenv.config()
 
@@ -32,8 +32,9 @@ mongoose
 
 
 const PORT = process.env.PORT || 3000
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
-export default app
+module.exports = app
